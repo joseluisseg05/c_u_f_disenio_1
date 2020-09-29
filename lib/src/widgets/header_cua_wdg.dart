@@ -188,3 +188,54 @@ class _CurvoPainter extends CustomPainter {
     return true;
   }
 }
+
+class HeaderOla extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      //color: Colors.teal,
+      child: CustomPaint(
+        painter: _OlaPainter(),
+      ),
+    );
+  }
+}
+
+class _OlaPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint();
+    //propiedades
+    paint.color = Colors.teal;
+    //paint.style = PaintingStyle.stroke; //dibuja la linea
+    paint.style = PaintingStyle.fill; //rellena
+    paint.strokeWidth = 5.0;
+
+    final path = Path();
+    //dibujar
+    path.lineTo(0, size.height * 0.25);
+    path.quadraticBezierTo(
+      size.width * 0.25, // estas dos lineas es el punto donde realiza la curva
+      size.height * 0.35,
+      size.width * 0.5, //estas dos lineas corresponde a donde termina la curva
+      size.height * 0.25,
+    );
+    path.quadraticBezierTo(
+      size.width * 0.75, // estas dos lineas es el punto donde realiza la curva
+      size.height * 0.15,
+      size.width, //estas dos lineas corresponde a donde termina la curva
+      size.height * 0.25,
+    );
+    path.lineTo(size.width, 0);
+    path.lineTo(0, 0);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}
