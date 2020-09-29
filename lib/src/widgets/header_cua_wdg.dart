@@ -239,3 +239,67 @@ class _OlaPainter extends CustomPainter {
     return true;
   }
 }
+
+class HeaderOlaGradi extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      //color: Colors.teal,
+      child: CustomPaint(
+        painter: _OlaGradiPainter(),
+      ),
+    );
+  }
+}
+
+class _OlaGradiPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Rect rect = Rect.fromCircle(
+      center: Offset(0.0, 120.0),
+      radius: 200,
+    );
+
+    final Gradient gradient = LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Colors.teal[100],
+          Colors.teal,
+          Colors.teal[700],
+        ]);
+
+    final paint = Paint()..shader = gradient.createShader(rect);
+    //propiedades
+    //paint.style = PaintingStyle.stroke; //dibuja la linea
+    paint.style = PaintingStyle.fill; //rellena
+    paint.strokeWidth = 5.0;
+
+    final path = Path();
+    //dibujar
+    path.lineTo(0, size.height * 0.25);
+    path.quadraticBezierTo(
+      size.width * 0.25, // estas dos lineas es el punto donde realiza la curva
+      size.height * 0.35,
+      size.width * 0.5, //estas dos lineas corresponde a donde termina la curva
+      size.height * 0.25,
+    );
+    path.quadraticBezierTo(
+      size.width * 0.75, // estas dos lineas es el punto donde realiza la curva
+      size.height * 0.15,
+      size.width, //estas dos lineas corresponde a donde termina la curva
+      size.height * 0.25,
+    );
+    path.lineTo(size.width, 0);
+    path.lineTo(0, 0);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}
