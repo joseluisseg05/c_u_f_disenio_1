@@ -1,3 +1,4 @@
+import 'package:app_disenios_custom/src/pages/animacion_page.dart';
 import 'package:app_disenios_custom/src/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -7,8 +8,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Diseños 1',
-        home: HomePage());
+      debugShowCheckedModeBanner: false,
+      title: 'Diseños 1',
+      home: AnimacionPage(),
+    );
   }
 }
