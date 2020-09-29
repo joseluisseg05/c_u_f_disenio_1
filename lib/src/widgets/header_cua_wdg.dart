@@ -63,3 +63,42 @@ class _DiagonalPainter extends CustomPainter {
     return true;
   }
 }
+
+class HeaderTriangulo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      //color: Colors.teal,
+      child: CustomPaint(
+        painter: _TrianguloPainter(),
+      ),
+    );
+  }
+}
+
+class _TrianguloPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint();
+    //propiedades
+    paint.color = Colors.teal;
+    //paint.style = PaintingStyle.stroke; //dibuja la linea
+    paint.style = PaintingStyle.fill; //rellena
+    paint.strokeWidth = 5.0;
+
+    final path = Path();
+    //dibujar
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, 0);
+    path.lineTo(0, 0);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}
