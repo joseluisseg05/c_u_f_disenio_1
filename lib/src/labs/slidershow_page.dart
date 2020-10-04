@@ -1,6 +1,6 @@
 import 'package:app_disenios_custom/src/models/slider_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:provider/provider.dart';
 
 class SliderPage extends StatelessWidget {
