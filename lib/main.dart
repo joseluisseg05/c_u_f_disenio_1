@@ -4,9 +4,10 @@
 //import 'package:app_disenios_custom/src/pages/home_page.dart';
 //import 'package:app_disenios_custom/src/labs/slidershow_page.dart';
 //import 'package:app_disenios_custom/src/retos/cuadrado_animado_page.dart';
-import 'package:app_disenios_custom/src/pages/emergency_page.dart';
+//import 'package:app_disenios_custom/src/pages/emergency_page.dart';
 //import 'package:app_disenios_custom/src/pages/pinterest_page.dart';
 //import 'package:app_disenios_custom/src/pages/slideshow_page.dart';
+import 'package:app_disenios_custom/src/pages/slider_list_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Diseños 1',
-      home: EmergencyPage(),
+      home: SliderListPage(),
     );
   }
 }
